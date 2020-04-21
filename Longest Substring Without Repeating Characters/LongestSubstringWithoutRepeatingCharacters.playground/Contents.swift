@@ -1,8 +1,12 @@
 import Foundation
 
 func lengthOfLongestSubstring(_ s: String) -> Int {
+    if s.isEmpty {
+        return 0
+    }
+
     var dict: [Character: Int] = [:]
-    var ret = 0
+    var ret = Int.min
 
     var i = 0
 
@@ -13,9 +17,7 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
 
         dict[ch] = offset
 
-        print(ch, ret, i, offset)
         ret = max(ret, offset-i+1)
-        print(ret)
     }
 
     return ret
